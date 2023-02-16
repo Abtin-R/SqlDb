@@ -1,0 +1,36 @@
+﻿@model LaptopByBrand
+
+
+<form method="post">
+
+    <select asp-for="BrandId" required>
+        @foreach (var v in Model.Brands)
+        {
+            <option value="@v.Id">@v.Name</option>
+        }
+    </select>
+    <br />
+    <label asp-for="OrderBy">Check to Order by Year Uncheck to Order by Price</label>
+    <input type="checkbox" asp-for="OrderBy" />
+    <br />
+    <label asp-for="AorD">Uncheck to Order by descending, Check to by ascending</label>
+    <input type="checkbox" asp-for="AorD" />
+    <br />
+    <label asp-for="MoreOrLess">Check to select laptops higher than price, Uncheck  to select laptops lower than price</label>
+    <input type="checkbox" asp-for="MoreOrLess" />
+    <br />
+    <label asp-for="Price">Enter Price</label>
+    <input type="number" asp-for="Price" placeholder="100" />
+    <br />
+    <label asp-for="HigherOrLower">Check to select laptops older than number, Uncheck  to select laptops younger than number</label>
+    <input type="checkbox" asp-for="HigherOrLower" />
+    <br />
+    <label asp-for="Year">Enter a Year</label>
+    <input type="number" asp-for="Year" placeholder="1892" />
+    <br />
+    <button asp-controller="Laptop" asp-action="LaptopsByBrandRes" type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+

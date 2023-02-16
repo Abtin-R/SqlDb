@@ -1,0 +1,25 @@
+﻿@model Brand
+
+
+<form method="post">
+
+    <div class="col-md-4">
+        <label asp-for="Name" class="form-label"></label>
+        <input type="text" asp-for="Name" placeholder="Enter Name">
+    </div>
+    <div style="visibility:hidden">
+        <label asp-for="Id" class="form-label"></label>
+        <input type="number" value="0" asp-for="Id">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+@if (Model.Id != null && Model.Id != 0)
+{
+    <p>Id: @Model.Id</p>
+    <p>Name: @Model.Name</p>
+}

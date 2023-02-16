@@ -1,0 +1,22 @@
+﻿@model Compare
+
+
+<form method="post">
+    <select asp-for="id1" required>
+        @foreach (var v in Model.laptops)
+        {
+            <option value="@v.id">@v.Model</option>
+        }
+    </select>
+    <select asp-for="id2" required>
+        @foreach (var v in Model.laptops)
+        {
+            <option value="@v.id">@v.Model</option>
+        }
+    </select>
+
+    <button asp-controller="Laptop" asp-action="CompareRes" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+

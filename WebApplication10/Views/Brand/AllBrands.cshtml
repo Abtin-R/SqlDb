@@ -1,0 +1,14 @@
+﻿@model IEnumerable<IGrouping<string, Laptop>>
+
+
+@foreach (var v in Model)
+{
+    <h1>@v.Key</h1>
+    @foreach (var i in v)
+    {
+        <p>@i.Model</p>
+    }
+}
+
+
+

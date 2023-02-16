@@ -1,0 +1,19 @@
+﻿@model Compare
+
+@{
+    if (Model.isSame)
+    {
+        <p>You need to Chose two diffrent laptops</p>
+    }
+
+    else
+    {
+        @foreach (var v in Model.laptops)
+        {
+            <p>@v.Brand.Name, @v.Model, @v.Year, @v.Price</p>
+
+        }
+    }
+}
+
+

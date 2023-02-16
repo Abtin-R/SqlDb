@@ -1,0 +1,47 @@
+﻿@model Laptop
+
+
+<form method="post">
+    @{
+        DataBase db = DataBase.GetInstance();
+    }
+    <div class="col-md-4">
+        <label asp-for="Model" class="form-label"></label>
+        <input type="text" asp-for="Model" placeholder="Enter Name">
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Price" class="form-label"></label>
+        <input type="number" asp-for="Price" placeholder="Price">
+    </div>
+    <div class="col-md-4">
+        <label asp-for="Year" class="form-label"></label>
+        <input type="text" asp-for="Year" placeholder="Year">
+    </div>
+    <div>
+        <label asp-for="brand" class="form-label"></label>
+        <select asp-for="brand">
+            @foreach (var v in db.Brands)
+            {
+                <option value="@v.Id">@v.Name</option>
+            }
+        </select>
+    </div>
+    <div style="visibility:hidden">
+        <label asp-for="id" class="form-label"></label>
+        <input type="number" value="0" asp-for="id">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+@if (Model.id != null && Model.id != 0)
+{
+    <p>ID: @Model.id</p>
+    <p>Model Name: @Model.Model</p>
+    <p>Brand Name: @Model.Brand.Name</p>
+    <p>Price: @Model.Price</p>
+    <p>Year: @Model.Year</p>
+}

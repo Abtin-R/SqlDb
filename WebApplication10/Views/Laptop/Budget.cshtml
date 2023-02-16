@@ -1,0 +1,28 @@
+﻿@model Budget
+
+
+<form method="post">
+
+    <div class="col-md-4">
+        <label asp-for="range" class="form-label">Max amount</label>
+        <input type="number" asp-for="range" placeholder="1000">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+
+
+
+@if (Model.result != null && Model.result.Count != 0)
+{
+    @foreach (var v in Model.result)
+    {
+        <p>
+            @v.Brand.Name, @v.Model, @v.Year, @v.Price
+
+        </p>
+    }
+
+}

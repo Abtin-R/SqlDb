@@ -1,0 +1,9 @@
+﻿@model List<Laptop>
+
+
+<div style="margin: 0 auto">
+    @foreach (var v in Model)
+    {
+        <p>@v.Brand.Name, @v.Model, @v.Year, @v.Price </p>
+    }
+</div>
